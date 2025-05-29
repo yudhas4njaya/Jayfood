@@ -1,7 +1,7 @@
-const wallpapers = [
-            'Nature Wallpaper', 'Abstract Art', 'City Lights', 'Ocean Waves', 
-            'Mountain View', 'Space Galaxy', 'Flower Garden', 'Sunset Beach',
-            'Forest Path', 'Neon Lights', 'Geometric Patterns', 'Animal Wildlife'
+const jayfood = [
+            'Nasi Rendang', 'Nasi Kuning', 'Nasi Kandar', 'Nasi Pecel Lele', 
+            'Nasi Pecel', 'Nasi Uduk', 'Nasi Bakar Kemangi', 'Nasi Soto',
+            'Nasi Rawon', 'Neon Lalap Ayam', 'Nasi Kebuli', 'Nasi Puyung'
         ];
 
         // Search functionality
@@ -12,7 +12,7 @@ const wallpapers = [
             const query = this.value.toLowerCase();
             
             if (query.length > 0) {
-                const filtered = wallpapers.filter(item => 
+                const filtered = jayfood.filter(item => 
                     item.toLowerCase().includes(query)
                 );
                 
@@ -139,7 +139,7 @@ const wallpapers = [
                 console.log('Product clicked:', this.dataset.price || 'promo item');
                 
                 // Show product details simulation
-                const productName = this.classList.contains('product-card') ? 'Wallpaper Premium' : 'Wallpaper Promo';
+                const productName = this.classList.contains('product-card') ? 'Nasi Spesial' : 'Nasi Promo';
                 alert(`${productName} - ${this.querySelector('.product-price')?.textContent || 'Special Price'}`);
             });
         });
