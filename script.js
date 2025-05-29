@@ -18,7 +18,7 @@ const jayfood = [
                 
                 if (filtered.length > 0) {
                     searchResults.innerHTML = filtered.map(item => 
-                        `<div class="search-item">${item}</div>`
+                        <div class="search-item">${item}</div>
                     ).join('');
                     searchResults.style.display = 'block';
                 } else {
@@ -87,7 +87,7 @@ const jayfood = [
                 // Apply discount
                 const discount = parseInt(this.dataset.discount);
                 applyDiscount(discount);
-                console.log(`Applied ${discount}% discount`);
+                console.log(Applied ${discount}% discount);
             });
         });
 
@@ -97,7 +97,7 @@ const jayfood = [
                 const discountedPrice = originalPrice - (originalPrice * percentage / 100);
                 const priceElement = card.querySelector('.product-price');
                 if (priceElement) {
-                    priceElement.innerHTML = `<s style="opacity:0.6">Rp.${originalPrice.toLocaleString()}</s><br>Rp.${Math.round(discountedPrice).toLocaleString()}`;
+                    priceElement.innerHTML = <s style="opacity:0.6">Rp.${originalPrice.toLocaleString()}</s><br>Rp.${Math.round(discountedPrice).toLocaleString()};
                 }
                 
                 // Add animation
@@ -115,14 +115,14 @@ const jayfood = [
             card.addEventListener('click', function() {
                 // Create ripple effect
                 const ripple = document.createElement('div');
-                ripple.style.cssText = `
+                ripple.style.cssText = 
                     position: absolute;
                     border-radius: 50%;
                     background: rgba(255,255,255,0.6);
                     transform: scale(0);
                     animation: ripple 0.6s linear;
                     pointer-events: none;
-                `;
+                ;
                 
                 const rect = this.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
@@ -140,26 +140,26 @@ const jayfood = [
                 
                 // Show product details simulation
                 const productName = this.classList.contains('product-card') ? 'Nasi Spesial' : 'Nasi Promo';
-                alert(`${productName} - ${this.querySelector('.product-price')?.textContent || 'Special Price'}`);
+                alert(${productName} - ${this.querySelector('.product-price')?.textContent || 'Special Price'});
             });
         });
 
         // Add ripple animation CSS
         const style = document.createElement('style');
-        style.textContent = `
+        style.textContent = 
             @keyframes ripple {
                 to {
                     transform: scale(4);
                     opacity: 0;
                 }
             }
-        `;
+        ;
         document.head.appendChild(style);
 
         // Dot indicator functionality for product grid
         const productGrid = document.getElementById('productGrid');
         const dotIndicator = document.getElementById('dotIndicator');
-        setupDots(productGrid, dotIndicator, itemsPerPage);
+        const dots = dotIndicator.querySelectorAll('.dot');
         
         let currentPage = 0;
         const itemsPerPage = 3;
@@ -180,28 +180,6 @@ const jayfood = [
                 behavior: 'smooth'
             });
             updateDots(page, dotContainer);
-        }
-
-        function setupDots(grid, dotContainer, itemsPerPage) {
-            const totalItems = grid.querySelectorAll('.product-card, .promo-card').length;
-            const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-            dotContainer.innerHTML = ''; // Kosongkan container dots
-
-            for (let i = 0; i < totalPages; i++) {
-                 const dot = document.createElement('div');
-                 dot.classList.add('dot');
-                 if (i === 0) dot.classList.add('active');
-                 dot.addEventListener('click', () => {
-                     scrollToPage(i, grid, dotContainer);
-                     if (grid.id === 'productGrid') {
-                        currentPage = i;
-                     } else {
-                        currentPromoPage = i;
-                     }
-            });
-            dotContainer.appendChild(dot);
-            }
         }
 
         // Handle dot clicks for product grid
@@ -229,7 +207,7 @@ const jayfood = [
         // Dot indicator functionality for promo grid
         const promoGrid = document.getElementById('promoGrid');
         const promoDotIndicator = document.getElementById('promoDotIndicator');
-        setupDots(promoGrid, promoDotIndicator, itemsPerPage);
+        const promoDots = promoDotIndicator.querySelectorAll('.dot');
         
         let currentPromoPage = 0;
 
@@ -257,5 +235,3 @@ const jayfood = [
 
         // Initialize with default discount
         applyDiscount(35);
-
-            
