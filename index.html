@@ -10,12 +10,20 @@
   <div class="container">
     <header>
       <h1>Menu Makanan</h1>
-      <div class="tabs">
-        <button onclick="filterCategory('m')">Diskon</button>
-        <button onclick="filterCategory('n')">Terdekat</button>
-        <button onclick="filterCategory('x')">Top Rating</button>
-        <button onclick="filterCategory('all')">Semuanya</button>
-      </div>
+      <!-- Kategori Geser -->
+      <div class="tabs-wrapper">
+        <div class="tabs" id="categoryTabs">
+          <button onclick="filterCategory('m')">Diskon</button>
+          <button onclick="filterCategory('n')">Terdekat</button>
+          <button onclick="filterCategory('x')">Top Rating</button>
+          <button onclick="filterCategory('all')">Semuanya</button>
+        </div>
+      <div class="tab-dots" id="tabDots">
+        <span class="tab-dot active"></span>
+        <span class="tab-dot"></span>
+        <span class="tab-dot"></span>
+        <span class="tab-dot"></span>
+   </div>
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Cari makanan..." onkeyup="searchProducts()" />
         <select id="sortSelect" onchange="sortProducts()">
