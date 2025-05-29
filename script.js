@@ -159,7 +159,7 @@ const jayfood = [
         // Dot indicator functionality for product grid
         const productGrid = document.getElementById('productGrid');
         const dotIndicator = document.getElementById('dotIndicator');
-        const dots = dotIndicator.querySelectorAll('.dot');
+        setupDots(productGrid, dotIndicator, itemsPerPage);
         
         let currentPage = 0;
         const itemsPerPage = 3;
@@ -180,6 +180,28 @@ const jayfood = [
                 behavior: 'smooth'
             });
             updateDots(page, dotContainer);
+        }
+
+        function setupDots(grid, dotContainer, itemsPerPage) {
+            const totalItems = grid.querySelectorAll('.product-card, .promo-card').length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            dotContainer.innerHTML = ''; // Kosongkan container dots
+
+            for (let i = 0; i < totalPages; i++) {
+                 const dot = document.createElement('div');
+                 dot.classList.add('dot');
+                 if (i === 0) dot.classList.add('active');
+                 dot.addEventListener('click', () => {
+                     scrollToPage(i, grid, dotContainer);
+                     if (grid.id === 'productGrid') {
+                        currentPage = i;
+                     } else {
+                        currentPromoPage = i;
+                     }
+            });
+            dotContainer.appendChild(dot);
+            }
         }
 
         // Handle dot clicks for product grid
@@ -207,7 +229,7 @@ const jayfood = [
         // Dot indicator functionality for promo grid
         const promoGrid = document.getElementById('promoGrid');
         const promoDotIndicator = document.getElementById('promoDotIndicator');
-        const promoDots = promoDotIndicator.querySelectorAll('.dot');
+        setupDots(promoGrid, promoDotIndicator, itemsPerPage);
         
         let currentPromoPage = 0;
 
@@ -235,3 +257,5 @@ const jayfood = [
 
         // Initialize with default discount
         applyDiscount(35);
+
+            
