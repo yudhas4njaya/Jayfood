@@ -93,7 +93,21 @@ let products = [
       loadProducts();
     }
   });
-  
+
+    // Indikator titik bergerak otomatis saat scroll kategori
+    const categoryTabs = document.getElementById('categoryTabs');
+    const tabDots = document.querySelectorAll('#tabDots .tab-dot');
+
+    categoryTabs.addEventListener('scroll', () => {
+      const scrollLeft = categoryTabs.scrollLeft;
+      const maxScroll = categoryTabs.scrollWidth - categoryTabs.clientWidth;
+      const index = Math.round((scrollLeft / maxScroll) * (tabDots.length - 1));
+
+      tabDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+        });
+    });
+
   window.onload = () => {
     loadProducts();
   };
