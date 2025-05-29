@@ -1,7 +1,7 @@
-const jayfood = [
-            'Nasi Rendang', 'Nasi Kuning', 'Nasi Kandar', 'Nasi Pecel Lele', 
-            'Nasi Pecel', 'Nasi Uduk', 'Nasi Bakar Kemangi', 'Nasi Soto',
-            'Nasi Rawon', 'Neon Lalap Ayam', 'Nasi Kebuli', 'Nasi Puyung'
+const wallpapers = [
+            'Nature Wallpaper', 'Abstract Art', 'City Lights', 'Ocean Waves', 
+            'Mountain View', 'Space Galaxy', 'Flower Garden', 'Sunset Beach',
+            'Forest Path', 'Neon Lights', 'Geometric Patterns', 'Animal Wildlife'
         ];
 
         // Search functionality
@@ -12,13 +12,13 @@ const jayfood = [
             const query = this.value.toLowerCase();
             
             if (query.length > 0) {
-                const filtered = jayfood.filter(item => 
+                const filtered = wallpapers.filter(item => 
                     item.toLowerCase().includes(query)
                 );
                 
                 if (filtered.length > 0) {
                     searchResults.innerHTML = filtered.map(item => 
-                        <div class="search-item">${item}</div>
+                        `<div class="search-item">${item}</div>`
                     ).join('');
                     searchResults.style.display = 'block';
                 } else {
@@ -87,7 +87,7 @@ const jayfood = [
                 // Apply discount
                 const discount = parseInt(this.dataset.discount);
                 applyDiscount(discount);
-                console.log(Applied ${discount}% discount);
+                console.log(`Applied ${discount}% discount`);
             });
         });
 
@@ -97,7 +97,7 @@ const jayfood = [
                 const discountedPrice = originalPrice - (originalPrice * percentage / 100);
                 const priceElement = card.querySelector('.product-price');
                 if (priceElement) {
-                    priceElement.innerHTML = <s style="opacity:0.6">Rp.${originalPrice.toLocaleString()}</s><br>Rp.${Math.round(discountedPrice).toLocaleString()};
+                    priceElement.innerHTML = `<s style="opacity:0.6">Rp.${originalPrice.toLocaleString()}</s><br>Rp.${Math.round(discountedPrice).toLocaleString()}`;
                 }
                 
                 // Add animation
@@ -115,14 +115,14 @@ const jayfood = [
             card.addEventListener('click', function() {
                 // Create ripple effect
                 const ripple = document.createElement('div');
-                ripple.style.cssText = 
+                ripple.style.cssText = `
                     position: absolute;
                     border-radius: 50%;
                     background: rgba(255,255,255,0.6);
                     transform: scale(0);
                     animation: ripple 0.6s linear;
                     pointer-events: none;
-                ;
+                `;
                 
                 const rect = this.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
@@ -139,21 +139,21 @@ const jayfood = [
                 console.log('Product clicked:', this.dataset.price || 'promo item');
                 
                 // Show product details simulation
-                const productName = this.classList.contains('product-card') ? 'Nasi Spesial' : 'Nasi Promo';
-                alert(${productName} - ${this.querySelector('.product-price')?.textContent || 'Special Price'});
+                const productName = this.classList.contains('product-card') ? 'Wallpaper Premium' : 'Wallpaper Promo';
+                alert(`${productName} - ${this.querySelector('.product-price')?.textContent || 'Special Price'}`);
             });
         });
 
         // Add ripple animation CSS
         const style = document.createElement('style');
-        style.textContent = 
+        style.textContent = `
             @keyframes ripple {
                 to {
                     transform: scale(4);
                     opacity: 0;
                 }
             }
-        ;
+        `;
         document.head.appendChild(style);
 
         // Dot indicator functionality for product grid
