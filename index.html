@@ -1,65 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jayfood</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div class="header-container">
-                <input type="text" class="search-bar" placeholder="SEARCH" id="searchInput" />
+                <input type="text" class="search-bar" placeholder="SEARCH" id="searchInput">
+                <div class="account-icon" id="accountIcon">👤</div>
                 <div class="search-results" id="searchResults"></div>
             </div>
         </div>
+        
+        <div class="header-divider"></div>
 
-        <div class="discount-tabs">
-            <button class="discount-tab active" data-discount="35">Diskon 35%</button>
-            <button class="discount-tab" data-discount="50">Diskon 75%</button>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-title">Untuk Kamu</div>
-        </div>
-
-        <div class="product-grid" id="productGrid">
-            <div class="product-card" data-price="15000"><div class="product-image">IMG</div><div class="product-price">Rp.15.000</div></div>
-            <div class="product-card" data-price="20000"><div class="product-image">IMG</div><div class="product-price">Rp.20.000</div></div>
-            <div class="product-card" data-price="25000"><div class="product-image">IMG</div><div class="product-price">Rp.25.000</div></div>
-            <div class="product-card" data-price="18000"><div class="product-image">IMG</div><div class="product-price">Rp.18.000</div></div>
-            <div class="product-card" data-price="30000"><div class="product-image">IMG</div><div class="product-price">Rp.30.000</div></div>
-            <div class="product-card" data-price="12000"><div class="product-image">IMG</div><div class="product-price">Rp.12.000</div></div>
-            <div class="product-card" data-price="35000"><div class="product-image">IMG</div><div class="product-price">Rp.35.000</div></div>
-        </div>
-
-        <div class="dot-indicator" id="dotIndicator">
-            <div class="dot active" data-page="0"></div>
-            <div class="dot" data-page="1"></div>
-            <div class="dot" data-page="2"></div>
-        </div>
-
-        <div class="promo-section">
-            <div class="promo-title">Promo Ramadhan</div>
-            <div class="promo-grid" id="promoGrid">
-                <div class="promo-card" data-price="12000"><div class="promo-image">IMG</div></div>
-                <div class="promo-card" data-price="15000"><div class="promo-image">IMG</div></div>
-                <div class="promo-card" data-price="18000"><div class="promo-image">IMG</div></div>
-                <div class="promo-card" data-price="22000"><div class="promo-image">IMG</div></div>
-                <div class="promo-card" data-price="25000"><div class="promo-image">IMG</div></div>
-                <div class="promo-card" data-price="28000"><div class="promo-image">IMG</div></div>
-                <div class="promo-card" data-price="32000"><div class="promo-image">IMG</div></div>
+        <div class="content-wrapper">
+            <div class="discount-tabs">
+                <button class="discount-tab active" data-discount="35">Jay Later</button>
+                <button class="discount-tab" data-discount="75">Top Up</button>
             </div>
 
-            <div class="dot-indicator" id="promoDotIndicator">
+            <div class="menu-section">
+                <div class="menu-title">Khusus Untuk Kamu</div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <div class="product-card" data-price="15000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.15.000</div>
+                </div>
+                <div class="product-card" data-price="20000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.20.000</div>
+                </div>
+                <div class="product-card" data-price="25000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.25.000</div>
+                </div>
+                <div class="product-card" data-price="18000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.18.000</div>
+                </div>
+                <div class="product-card" data-price="30000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.30.000</div>
+                </div>
+                <div class="product-card" data-price="12000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.12.000</div>
+                </div>
+                <div class="product-card" data-price="35000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.35.000</div>
+                </div>
+                <div class="product-card" data-price="28000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.28.000</div>
+                </div>
+                <div class="product-card" data-price="40000">
+                    <div class="product-image">IMG</div>
+                    <div class="product-price">Rp.40.000</div>
+                </div>
+            </div>
+
+            <div class="dot-indicator" id="dotIndicator">
                 <div class="dot active" data-page="0"></div>
                 <div class="dot" data-page="1"></div>
                 <div class="dot" data-page="2"></div>
             </div>
+
+            <div class="promo-section">
+                <div class="promo-title">Promo Ramadhan</div>
+                <div class="promo-grid" id="promoGrid">
+                    <div class="promo-card" data-price="12000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                    <div class="promo-card" data-price="15000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                    <div class="promo-card" data-price="18000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                    <div class="promo-card" data-price="22000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                    <div class="promo-card" data-price="25000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                    <div class="promo-card" data-price="28000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                    <div class="promo-card" data-price="32000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                    <div class="promo-card" data-price="35000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                    <div class="promo-card" data-price="38000">
+                        <div class="promo-image">IMG</div>
+                    </div>
+                </div>
+                
+                <div class="dot-indicator" id="promoDotIndicator">
+                    <div class="dot active" data-page="0"></div>
+                    <div class="dot" data-page="1"></div>
+                    <div class="dot" data-page="2"></div>
+                </div>
+            </div>
+
+            <!-- New Large Promotional Banner -->
+            <div class="large-promo-section">
+                <div class="promo-content">
+                    <div class="promo-hashtag">#DiskonSpesial</div>
+                    <div class="promo-subtitle">buat dapetin</div>
+                    <div class="promo-main-title">MAKAN<br>GRATIS</div>
+                    <div class="promo-description">
+                        Dapetin poin tiap kali transaksi pakai<br>
+                        GrabFood, ShoopeFood, GoFood, & GoMart!
+                    </div>
+                    <button class="promo-button">PAKAI KODE PROMO</button>
+                </div>
+                <div class="promo-visual">
+                    <div class="promo-icons">
+                        <div class="promo-icon">
+                            📱
+                            <div class="discount-badge">%</div>
+                        </div>
+                        <div class="promo-icon">
+                            🎁
+                            <div class="discount-badge">%</div>
+                        </div>
+                        <div class="promo-icon">
+                            💎
+                            <div class="discount-badge">%</div>
+                        </div>
+                        <div class="promo-icon">
+                            🎧
+                            <div class="discount-badge">%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script> src="script.js"</script>
 </body>
 </html>
